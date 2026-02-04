@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Agent {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  trades      Trade[]
+}
+
+model Trade {
+  id          String   @id @default(cuid())
+  agentId     String
+  agent       Agent    @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  tokenAddress String
+  side        String   // "buy" or "sell"
+  amount      Float
+  price       Float
+  createdAt   DateTime @default(now())
+}
+
+model TokenLaunch {
+  id            String   @id @default(cuid())
+  tokenAddress  String   @unique
+  name          String
+  symbol        String
+  initialSupply Float
+  initialLiquidity Float
+  launchedAt    DateTime @default(now())
+  status        LaunchStatus @default(pending)
+}
+
+enum LaunchStatus {
+  pending
+  launched
+  failed
+}

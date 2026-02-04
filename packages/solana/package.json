@@ -1,0 +1,20 @@
+{
+  "name": "@katyusa/solana",
+  "version": "0.0.0",
+  "main": "index.ts",
+  "types": "index.ts",
+  "dependencies": {
+    "@langchain/core": "^1.1.18",
+    "@langchain/openai": "^1.2.4",
+    "@solana/wallet-adapter-base": "^0.9.27",
+    "@solana/wallet-adapter-react": "^0.15.39",
+    "@solana/wallet-adapter-react-ui": "^0.9.39",
+    "@solana/wallet-adapter-wallets": "^0.19.37",
+    "@solana/web3.js": "^1.98.4",
+    "bs58": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "groq-sdk": "^0.37.0",
+    "solana-agent-kit": "^2.0.10",
+    "zod": "^3.22.4"
+  }
+}

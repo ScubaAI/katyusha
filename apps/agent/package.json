@@ -1,0 +1,23 @@
+{
+  "name": "agent",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/core/agent.ts",
+    "build": "tsc",
+    "start": "node dist/core/agent.js",
+    "lint": "eslint --max-warnings 0"
+  },
+  "dependencies": {
+    "@katyusa/solana": "workspace:*",
+    "groq-sdk": "^0.37.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.15.3",
+    "tsx": "^4.19.0",
+    "typescript": "5.9.2"
+  }
+}
